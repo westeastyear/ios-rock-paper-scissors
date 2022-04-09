@@ -90,8 +90,8 @@
 
 
 **자세한 고민 보기**
-[STEP 1 PR](https://github.com/yagom-academy/ios-rock-paper-scissors/pull/111)
-[STEP 2 PR](https://github.com/yagom-academy/ios-rock-paper-scissors/pull/121)
+- [STEP 1 PR](https://github.com/yagom-academy/ios-rock-paper-scissors/pull/111)
+- [STEP 2 PR](https://github.com/yagom-academy/ios-rock-paper-scissors/pull/121)
 
 
 ## 배운개념
@@ -102,7 +102,7 @@ enumeration의 case를 사용해서 하드코딩을 지양하였습니다.
 ### enum initializer
 [enum init 공식문서](https://developer.apple.com/documentation/swift/rawrepresentable/1538354-init)
 원시값을 사용해서 매칭되는 열거형의 인스턴스를 생성하여 활용하였습니다.
-```swift=
+```swift
 guard let value = RockPaperScissors(rawValue: selectedNumber) else {
     throw InputError.wrongInputError
 }
@@ -115,7 +115,7 @@ enum의 원시값으로는 리터럴만 사용가능합니다.
 
 * 적절하지 원시값 타입을 작성한 경우 xcode에서 나타난 에러
 : (사용자 정의 타입(enum GameResult)을 원시값의 타입으로 세팅하려고 한 경우
-```swift=
+```swift
 1. 'Game' declares raw type 'GameResult', 
 but does not conform to RawRepresentable and conformance 
 could not be synthesized
@@ -130,7 +130,7 @@ integer, or floating-point literal
 
 ### error handling
 Error프로토콜을 채택한 enum을 만들고 do-catch를 활용하여 에러를 처리하였습니다.
-```swift=
+```swift
 enum InputError: Error {
     case wrongInputError
 }
@@ -139,7 +139,7 @@ enum InputError: Error {
 
 ### CustomStringConvertible
 [CustomStringConvertible 공식문서](https://developer.apple.com/documentation/swift/customstringconvertible)
-```swift=
+```swift
 protocol CustomStringConvertible
 ```
 이 프로토콜을 따르는 타입은 사용자 정의에 따른 텍스트 출력이 가능해집니다.
@@ -148,7 +148,7 @@ protocol CustomStringConvertible
 
 ### map
 같은 대상에 대해서 2번 변환이 필요한 경우에 고차함수를 활용하였습니다.
-```swift=
+```swift
 let userNumber = Int(selectGameMenuUserNumber())
        .map( { convertMukChiPa($0) } )
 ```
